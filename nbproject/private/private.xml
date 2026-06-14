@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/observer/StockNotifier.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/modelo/PedidoDAO.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/observer/Observer.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/servicios/StockService.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/web/login.jsp</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/controlador/DashboardServlet.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/web/dashboard.jsp</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/servicios/LoginService.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/controlador/LogoutServlet.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/servicios/PedidoService.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/controlador/LoginServlet.java</file>
+            <file>file:/Users/mishellcastillo/Documents/Documentos%20universidad/2026/POO/SistemaBodegaMVC/src/java/com/bodega/observer/Subject.java</file>
+        </group>
+    </open-files>
+</project-private>
