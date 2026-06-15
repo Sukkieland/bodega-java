@@ -24,16 +24,14 @@ public class ConexionPostgreSQL {
     private Connection connection;
     
     // ═══════════════════════════════════════════════════════════
-    // 2. CONFIGURACIÓN DE TU BASE DE DATOS
-    //    ¡AJUSTA ESTOS VALORES SEGÚN TU POSTGRESQL!
+    // 2. CONFIGURACIÓN DE TU BASE DE DATOS EN LA NUBE (RENDER)
     // ═══════════════════════════════════════════════════════════
-    private static final String URL = "jdbc:postgresql://localhost:5432/bodegavargas";
-    private static final String USUARIO = "postgres";      // Tu usuario de PostgreSQL
-    private static final String PASSWORD = "1234";    // Tu contraseña de PostgreSQL
+    private static final String URL = "jdbc:postgresql://dpg-d8nk2qcm0tmc73e7k3g0-a.ohio-postgres.render.com:5432/bodegavargas?sslmode=require";
+    private static final String USUARIO = "admin_mishell";  
+    private static final String PASSWORD = "JsVsrssbDSGulLnJ4MahmvUrUMWcyfzH"; 
     
     // ═══════════════════════════════════════════════════════════
     // 3. CONSTRUCTOR PRIVADO
-    //    Nadie puede usar "new ConexionPostgreSQL()" desde fuera
     //    Solo esta clase misma puede crear la instancia
     // ═══════════════════════════════════════════════════════════
     private ConexionPostgreSQL() {
@@ -41,11 +39,11 @@ public class ConexionPostgreSQL {
             // Cargar el driver de PostgreSQL (como "encender" el puente)
             Class.forName("org.postgresql.Driver");
             
-            // Crear la conexión real
+            // Crear la conexión real hacia los servidores de Render
             this.connection = DriverManager.getConnection(URL, USUARIO, PASSWORD);
             
             System.out.println("✅ Conexión Singleton a PostgreSQL establecida exitosamente");
-            System.out.println("   📍 Base de datos: bodegavargas");
+            System.out.println("   📍 Base de datos: bodegavargas (Render Cloud)");
             System.out.println("   🔌 URL: " + URL);
             
         } catch (ClassNotFoundException e) {
@@ -54,15 +52,14 @@ public class ConexionPostgreSQL {
             throw new RuntimeException("Driver no encontrado", e);
             
         } catch (SQLException e) {
-            System.err.println("❌ ERROR: No se pudo conectar a PostgreSQL");
-            System.err.println("   Verifica que PostgreSQL esté corriendo y los datos sean correctos");
+            System.err.println("❌ ERROR: No se pudo conectar a PostgreSQL en la nube");
+            System.err.println("   Verifica las credenciales de Render y tu conexión a internet");
             throw new RuntimeException("Error de conexión", e);
         }
     }
     
     // ═══════════════════════════════════════════════════════════
     // 4. MÉTODO PÚBLICO PARA OBTENER LA ÚNICA INSTANCIA
-    //    Si no existe, la crea. Si ya existe, devuelve la misma.
     // ═══════════════════════════════════════════════════════════
     public static synchronized ConexionPostgreSQL getInstancia() {
         if (instancia == null) {
@@ -76,13 +73,12 @@ public class ConexionPostgreSQL {
     
     // ═══════════════════════════════════════════════════════════
     // 5. OBTENER LA CONEXIÓN JDBC
-    //    Los DAOs llaman a este método para hacer consultas SQL
     // ═══════════════════════════════════════════════════════════
     public Connection getConnection() {
         try {
-            // Si la conexión se cerró o murió, recrearla
+            // Si la conexión se cerró o murió, recrearla automáticamente
             if (connection == null || connection.isClosed()) {
-                System.out.println("🔄 Reconectando a PostgreSQL...");
+                System.out.println("🔄 Reconectando a PostgreSQL en Render...");
                 instancia = null;  // Resetear para forzar nueva instancia
                 return getInstancia().getConnection();
             }
